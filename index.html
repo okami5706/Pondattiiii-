@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Pondatti — A Letter From My Heart</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:#08050a;color:#f8edf3;font-family:Poppins,sans-serif;
+  overflow-x:hidden;
+}
+#stars{position:fixed;inset:0;z-index:-3;background:
+radial-gradient(circle at 20% 20%,rgba(255,100,160,.13),transparent 28%),
+radial-gradient(circle at 80% 70%,rgba(140,90,255,.11),transparent 30%),#08050a}
+#stars:before,#stars:after{content:"";position:absolute;inset:0;background-image:
+radial-gradient(#fff 1px,transparent 1px),radial-gradient(#fff 1px,transparent 1px);
+background-size:83px 83px,137px 137px;background-position:10px 30px,50px 80px;opacity:.25}
+.glow{position:fixed;width:340px;height:340px;border-radius:50%;filter:blur(80px);opacity:.18;z-index:-2;animation:float 9s ease-in-out infinite}
+.g1{background:#ff3f86;left:-120px;top:20%}.g2{background:#8457ff;right:-120px;top:55%;animation-delay:-4s}
+@keyframes float{50%{transform:translateY(-45px) scale(1.08)}}
+
+.music{
+ position:fixed;right:18px;top:18px;z-index:20;border:1px solid #ffffff22;
+ background:#ffffff10;backdrop-filter:blur(14px);color:#fff;border-radius:50px;
+ padding:10px 16px;cursor:pointer;font-size:13px
+}
+section{min-height:100vh;padding:90px 20px;display:flex;align-items:center;justify-content:center}
+.wrap{width:min(900px,100%);text-align:center}
+.kicker{letter-spacing:5px;text-transform:uppercase;font-size:11px;color:#ff9fc2;margin-bottom:20px}
+h1,h2{font-family:"Playfair Display",serif}
+.hero h1{font-size:clamp(50px,10vw,110px);line-height:.95;margin-bottom:28px}
+.hero h1 span{color:#ff6f9e}
+.hero p{max-width:650px;margin:auto;color:#cdbfc7;font-size:16px;line-height:1.9}
+.scroll{margin-top:60px;font-size:12px;color:#8d7f88;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(8px)}}
+
+.card{
+ background:linear-gradient(145deg,#ffffff0d,#ffffff04);border:1px solid #ffffff13;
+ border-radius:30px;padding:42px;box-shadow:0 30px 90px #0008;backdrop-filter:blur(14px)
+}
+h2{font-size:clamp(32px,6vw,58px);margin-bottom:22px}
+.letter{text-align:left;font-family:Caveat,cursive;font-size:clamp(22px,3vw,29px);line-height:1.65;color:#f8dfe9}
+.letter p{margin-bottom:18px}
+.highlight{color:#ff82ad}
+.reveal{opacity:0;transform:translateY(30px);transition:1s ease}
+.reveal.show{opacity:1;transform:none}
+
+.timeline{display:grid;gap:18px;margin-top:35px;text-align:left}
+.memory{
+ padding:22px;border-left:2px solid #ff5d92;background:#ffffff06;border-radius:0 18px 18px 0
+}
+.memory b{font-size:13px;color:#ff9fbe;letter-spacing:1px}.memory p{color:#cfc1c9;margin-top:7px;line-height:1.7}
+
+#sorry{position:relative}
+.sorry-box{max-width:720px}
+.sorry-word{font-family:Caveat;font-size:clamp(80px,20vw,190px);line-height:.8;color:#ff5b91;text-shadow:0 0 60px #ff2d7540}
+.sorry-sub{font-size:17px;line-height:1.9;color:#d5c6ce;margin-top:35px}
+.pulse{animation:pulse 1.8s infinite}
+@keyframes pulse{50%{text-shadow:0 0 100px #ff2d7570}}
+
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:35px}
+.promise{padding:25px;border:1px solid #ffffff12;border-radius:22px;background:#ffffff07;text-align:left}
+.promise span{font-size:28px}.promise h3{margin:12px 0 7px}.promise p{color:#aaa0a8;line-height:1.6;font-size:14px}
+
+.final{
+min-height:100vh;position:relative;overflow:hidden
+}
+.final h2{font-size:clamp(42px,8vw,78px)}
+.final p{color:#cdbfc7;line-height:1.9;max-width:650px;margin:0 auto}
+.signature{font-family:Caveat;font-size:42px;color:#ff86ad;margin-top:35px}
+.heart{font-size:80px;display:block;margin:25px auto;animation:heartbeat 1.4s infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}}
+
+button.open{
+margin-top:35px;border:0;border-radius:50px;padding:15px 28px;background:#ff5f94;color:white;
+font-weight:600;cursor:pointer;box-shadow:0 10px 35px #ff397050
+}
+#secret{display:none;margin-top:28px;font-family:Caveat;font-size:28px;color:#ffd7e4}
+.meters{display:grid;gap:28px;margin:38px auto 0;max-width:680px;text-align:left;font-family:Poppins,sans-serif}
+.meter-card{padding:22px;border:1px solid #ffffff12;background:#ffffff07;border-radius:22px}
+.meter-title{display:flex;justify-content:space-between;gap:15px;margin-bottom:12px;font-size:14px;color:#eee}
+.meter-title strong{color:#ff91b6}
+.meter-track{height:18px;border-radius:30px;background:#ffffff0c;overflow:visible;position:relative}
+.meter-fill{height:100%;border-radius:30px;position:relative}
+.love-fill{width:100%;background:linear-gradient(90deg,#ff477f,#ff9abd);box-shadow:0 0 22px #ff477f99}
+.love-fill:after{content:"";position:absolute;right:-8px;top:50%;width:34px;height:34px;transform:translateY(-50%);border-radius:50%;background:#ff7ba5;box-shadow:0 0 25px #ff477f,0 0 55px #ff477f66}
+.love-fill:before{content:"♥";position:absolute;right:-5px;top:50%;transform:translateY(-58%);z-index:2;color:white;font-size:16px}
+.hurt-fill{width:96%;background:linear-gradient(90deg,#8d355d,#ff658f);box-shadow:0 0 18px #ff477f55}
+.hurt-note{font-size:12px;color:#9e929b;margin-top:10px;line-height:1.6}
+.overflow-text{font-family:Caveat;font-size:22px;color:#ffb4ca;margin-top:14px;text-align:center}
+.petal{position:fixed;top:-40px;font-size:20px;pointer-events:none;z-index:10;animation:fall linear forwards;filter:drop-shadow(0 0 4px #ff9cba55)}
+@keyframes fall{
+  0%{transform:translate3d(0,-40px,0) rotate(0deg) scale(.7);opacity:0}
+  8%{opacity:.9}
+  45%{transform:translate3d(55px,50vh,0) rotate(170deg) scale(1)}
+  75%{transform:translate3d(-45px,80vh,0) rotate(280deg) scale(.85)}
+  100%{transform:translate3d(35px,110vh,0) rotate(420deg) scale(.65);opacity:0}
+}
+
+@media(max-width:600px){.card{padding:26px 20px}section{padding:70px 16px}}
+</style>
+</head>
+<body>
+<div id="stars"></div><div class="glow g1"></div><div class="glow g2"></div>
+
+<button class="music" id="musicBtn">♪ tap for a little magic</button>
+<audio id="music" loop>
+  <!-- Replace the src below with your own song file if you want background music -->
+</audio>
+
+<section class="hero">
+ <div class="wrap">
+   <div class="kicker">made for my Amurthaa Roshith</div>
+   <h1>For the girl who deserved a <span>flower.</span></h1>
+   <p>I know what this is really about. You shouldn't have had to ask me for something as simple as a flower. You shouldn't have had to wonder whether I see you as the princess you are. So this isn't me trying to make an excuse. This is me finally putting my heart where my words should have been.</p>
+   <div class="scroll">↓ keep going, pondatti ↓</div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="card">
+   <div class="kicker">chapter one</div>
+   <h2>Before anything else…</h2>
+   <div class="letter">
+    <p>My love,</p>
+    <p>I don't want to hide behind pretty words today.</p>
+    <p>There have been moments when I wasn't the boyfriend you deserved. Moments when I could have listened better, understood you better, held you a little tighter, reassured you a little sooner, and simply <span class="highlight">been there properly.</span></p>
+    <p>And I know love isn't proved by saying “I love you” a thousand times. It's proved by the little things we do when the other person is tired, hurt, scared, angry, confused or simply needs us.</p>
+    <p>I am still learning that.</p>
+    <p>I'm still learning how to love you properly. <span class="highlight">I'm sorry for being a slow learner.</span> But I promise you, I will get there soon. I may not always get everything right the first time, but I am learning you, learning us, and learning how to love you in the ways you deserve.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="sorry">
+ <div class="wrap reveal">
+  <div class="kicker">no avoiding this one</div>
+  <div class="sorry-box">
+   <div class="sorry-word pulse">SORRY.</div>
+   <p class="sorry-sub">
+    Yes. I'm saying it.<br>
+    Not because I want to end an argument. Not because I want you to stop being angry.
+    Not because saying it is easier than changing.<br><br>
+    <b>I am sorry because I didn't treat the girl I love like the princess she deserves to be treated like.</b><br><br>
+    I am sorry I made you wait for flowers when you should have received them simply because I thought of you.<br><br>
+    And I don't want this word to be the ending of the story.<br>
+    I want my actions to be what comes after it.
+   </p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="card">
+   <div class="kicker">chapter two</div>
+   <h2>I don't want a perfect relationship.</h2>
+   <div class="letter">
+    <p>I want <span class="highlight">ours.</span></p>
+    <p>And I want to learn the language of love that <i>you</i> deserve — not just the one that comes naturally to me.</p>
+    <p>The ridiculous conversations. The random fights. The “why are you like this?” moments. The laughter that makes no sense to anyone else. The tiny things only we understand.</p>
+    <p>I want to learn you again and again — even on the days when I think I already know everything.</p>
+    <p>Because you aren't someone I want to “keep”. You're someone I want to keep <span class="highlight">choosing.</span></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+   <div class="kicker">things I should never forget</div>
+   <h2>The princess treatment starts with noticing.</h2>
+   <div class="promise-grid">
+    <div class="promise"><span>🌷</span><h3>Flowers shouldn't need a reminder.</h3><p>I want to notice the little things you love before you have to ask me for them.</p></div>
+    <div class="promise"><span>👑</span><h3>You deserve to feel cherished.</h3><p>Not once in a while. Not only when something is wrong. I want you to feel loved in the ordinary moments too.</p></div>
+    <div class="promise"><span>🦢</span><h3>I will remember the little things.</h3><p>The things that make you smile, the things you ask for, and the things that matter to my swan.</p></div>
+    <div class="promise"><span>🐺</span><h3>I will protect what we have.</h3><p>Like a wolf beside his swan — not perfectly, but fiercely, intentionally and with my whole heart.</p></div>
+   </div>
+ </div>
+</section>
+
+<section>
+ <div class="wrap reveal">
+  <div class="card">
+   <div class="kicker">chapter three</div>
+   <h2>If I could give you one thing…</h2>
+   <div class="letter">
+    <p>It wouldn't be flowers.</p>
+    <p>It wouldn't be an expensive gift.</p>
+    <p>It wouldn't even be this website.</p>
+    <p>I'd give you the ability to see yourself through my eyes for one minute.</p>
+    <p>Then maybe you'd understand why losing your smile bothers me so much. Why your silence feels louder than anything. Why your happiness somehow became a part of mine without me noticing when it happened.</p>
+    <p>And maybe you'd understand that behind all my flaws, there is a boy who is still learning how to love the girl he never wants to lose.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="final">
+ <div class="wrap reveal">
+   <div class="kicker">the last page — for now</div>
+   <span class="heart">♥</span>
+   <h2>I'm not promising perfection.</h2>
+   <p>I'm promising effort. Honesty. Growth. Patience. And a love that doesn't run away when things get difficult.</p>
+   <div class="signature">Forever your idiot,<br>Roshith ❤️</div>
+   <button class="open" onclick="document.getElementById('secret').style.display='block'; burst()">One last thing…</button>
+   <div id="secret">
+     P.S. — I love you, even when you're mad at me. Especially when you make me earn my way back. 🫀<br><br>
+
+     <div class="meters">
+       <div class="meter-card">
+         <div class="meter-title">
+           <span>How much Roshith loves Amurthaa Roshith</span>
+           <strong>∞%</strong>
+         </div>
+         <div class="meter-track">
+           <div class="meter-fill love-fill"></div>
+         </div>
+         <div class="overflow-text">The meter broke. Apparently, “too much” isn't a number. ♡</div>
+       </div>
+
+       <div class="meter-card">
+         <div class="meter-title">
+           <span>How much it hurts knowing I didn't treat you properly</span>
+           <strong>96%</strong>
+         </div>
+         <div class="meter-track">
+           <div class="meter-fill hurt-fill"></div>
+         </div>
+         <div class="hurt-note">Not because I feel sorry for myself — because I know you deserved better from me, and I hate that it took me this long to understand it.</div>
+       </div>
+     </div>
+
+     <br>
+     <strong>And yes… u will receive the written letter soon.</strong><br>
+     This website was only the beginning. 🌷
+   </div>
+ </div>
+</section>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.16});
+reveals.forEach(x=>io.observe(x));
+
+function petal(){
+ const p=document.createElement('div');p.className='petal';
+ p.textContent=Math.random()>.88?'♡':(Math.random()>.5?'🌸':'❀');
+ p.style.left=Math.random()*100+'vw';
+ p.style.animationDuration=(6+Math.random()*7)+'s';
+ p.style.fontSize=(13+Math.random()*13)+'px';
+ p.style.animationDelay=(Math.random()*1.5)+'s';
+ document.body.appendChild(p);setTimeout(()=>p.remove(),15000);
+}
+for(let i=0;i<22;i++) setTimeout(petal,i*170);
+setInterval(petal,430);
+
+function burst(){
+ for(let i=0;i<75;i++)setTimeout(petal,i*30);
+}
+document.getElementById('musicBtn').onclick=()=>{
+ const a=document.getElementById('music');
+ if(!a.src){document.getElementById('musicBtn').textContent='♡ add your song in the HTML';return}
+ a.paused?a.play():a.pause();
+};
+</script>
+</body>
+</html>
