@@ -108,13 +108,13 @@ font-weight:600;cursor:pointer;box-shadow:0 10px 35px #ff397050
 <div id="stars"></div><div class="glow g1"></div><div class="glow g2"></div>
 
 <button class="music" id="musicBtn">♪ tap for a little magic</button>
-<audio id="music" loop>
-  <!-- Replace the src below with your own song file if you want background music -->
+<audio id="music" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
 </audio>
 
 <section class="hero">
  <div class="wrap">
-   <div class="kicker">made for my Amurthaa </div>
+   <div class="kicker">made for my Amurthaa Roshith</div>
    <h1>For the girl who deserved a <span>flower.</span></h1>
    <p>I know what this is really about. You shouldn't have had to ask me for something as simple as a flower. You shouldn't have had to wonder whether I see you as the princess you are. So this isn't me trying to make an excuse. This is me finally putting my heart where my words should have been.</p>
    <div class="scroll">↓ keep going, pondatti ↓</div>
@@ -216,7 +216,7 @@ font-weight:600;cursor:pointer;box-shadow:0 10px 35px #ff397050
      <div class="meters">
        <div class="meter-card">
          <div class="meter-title">
-           <span>How much Roshith loves Amurthaa </span>
+           <span>How much Roshith loves Amurthaa Roshith</span>
            <strong>∞%</strong>
          </div>
          <div class="meter-track">
@@ -266,8 +266,23 @@ function burst(){
 }
 document.getElementById('musicBtn').onclick=()=>{
  const a=document.getElementById('music');
- if(!a.src){document.getElementById('musicBtn').textContent='♡ add your song in the HTML';return}
- a.paused?a.play():a.pause();
+ if(a.paused){
+   a.volume=0;
+   a.play().then(()=>{
+     document.getElementById('musicBtn').textContent='♫ playing our song';
+     let v=0;
+     const fade=setInterval(()=>{
+       v=Math.min(1,v+0.05);
+       a.volume=v;
+       if(v>=1) clearInterval(fade);
+     },80);
+   }).catch(()=>{
+     document.getElementById('musicBtn').textContent='♡ tap again to play';
+   });
+ }else{
+   a.pause();
+   document.getElementById('musicBtn').textContent='♪ tap for music';
+ }
 };
 </script>
 </body>
